@@ -5,3 +5,4 @@ www/*/*.html
 www/*/*/*.html
 www/css/*
 www/js/index.js
+www/app.manifest

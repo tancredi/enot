@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     express = require('express'),
     rename = require('gulp-rename'),
     gutil = require('gulp-util'),
-    filter = require('gulp-filter');
+    filter = require('gulp-filter'),
+    manifest = require('gulp-manifest');
 
 // Initialise Tiny LiveReload and environment variables
 
@@ -119,13 +120,27 @@ gulp.task('server', function (next) {
     });
 });
 
+gulp.task('manifest', function(){
+    gulp.src([
+        paths.staticDir + '***/**/*'
+    ])
+    .pipe(manifest({
+        hash: true,
+        preferOnline: true,
+        network: ['http://*', '*'],
+        filename: 'app.manifest',
+        exclude: 'app.manifest'
+     }))
+    .pipe(gulp.dest(paths.staticDir));
+});
+
 // Build the codebase
 
-gulp.task('build', [ 'browserify', 'styles', 'views' ]);
+gulp.task('build', [ 'browserify', 'styles', 'views', 'manifest' ]);
 
 // Watch the codebase for changes
 
-gulp.task('watch', [ 'build', 'server', 'listen' ], function () {
+gulp.task('watch', [ 'build', 'server', 'manifest', 'listen' ], function () {
     gulp.watch(paths.browserify.watch, [ 'browserify' ]);
     gulp.watch(paths.styles.watch, [ 'styles' ]);
     gulp.watch(paths.views.watch, [ 'views' ]);
