@@ -1,0 +1,7 @@
+node_modules
+**.DS_Store
+www/*.html
+www/*/*.html
+www/*/*/*.html
+www/css/*
+www/js/index.js

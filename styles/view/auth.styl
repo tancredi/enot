@@ -1,0 +1,27 @@
+.view-signin, .view-signup
+    text-align center
+
+    .separate
+        display block
+        margin 20px 0
+        position relative
+        height 20px
+
+        &:before
+            content ''
+            position absolute
+            left 0
+            top 50%
+            width 100%
+            height 1px
+            background rgba(#fff, .1)
+
+        &:after
+            content 'or'
+            display block
+            position absolute
+            left 50%
+            top 0
+            width 40px
+            margin-left -20px
+            background color-bg

@@ -1,0 +1,32 @@
+button-color(bg-color = color-primary, type-color = color-white)
+    background bg-color
+    color type-color
+
+button, a.button, input[type='submit'], input[type='reset']
+    border-radius()
+    font-family font-body
+    display inline-block
+    padding 10px 20px
+    font-size 15px
+    font-weight normal
+
+    &, &.button-default
+        button-color(color-primary)
+        border 0
+
+    &.button-inverse
+        button-color(color-white, darken(color-primary, 40%))
+
+    &.large
+        padding 13px 30px
+        font-size 20px
+
+    &:focus
+        outline: none
+
+    &.circle
+        circle(60px)
+        padding 0
+
+    &.block
+        block-input()

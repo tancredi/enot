@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+    head
+        //- Generic
+        meta(charset='UTF-8')
+
+        //- Mobile options
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-status-bar-style', content='black')
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+
+        //- Styles
+        link(href='/css/main.css', rel='stylesheet', type='text/css')
+
+        title Enot
+
+    body
+        header: .page-width
+            a.logo(href='/') Enot
+
+            nav: ul
+                li(v-if='user'): a(href='#/signout') Sign-out
+                li(v-if='!user'): a(href='#/signin') Sign-in
+
+        div.page-width: div#view
+
+        //- Vendor
+        script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.6/firebase.js')
+        script(type='text/javascript', src='https://cdn.firebase.com/js/simple-login/1.3.0/firebase-simple-login.js')
+
+
+        //- App
+        script(type='text/javascript', src='/js/index.js')
+
+        //- Livereload
+        if !production
+            script(type='text/javascript', src='http://localhost:35729/livereload.js?snipver=1')
+
+        script(type='text/javascript').
+            window.CONFIG = { PRODUCTION: #{production} };

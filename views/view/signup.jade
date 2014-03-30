@@ -1,0 +1,15 @@
+h3.center Sign-up
+
+.row
+    .col-4
+    .col-4
+        form(v-on='submit: signup()')
+            div.box.error(v-if='error') {{ error }}
+            input.block(type='email', v-model='email', placeholder='email', required)
+            input.block(type='password', v-model='password', placeholder='password', required)
+            input.block(type='password', v-model='passwordRep', placeholder='repeat password', required)
+            button.block(type='submit') Sign-up
+
+        span.separate
+
+        <a href='#/signin'>Sign-in</a>

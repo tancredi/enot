@@ -1,0 +1,27 @@
+input[type="text"]
+input[type="password"]
+input[type="email"]
+input[type="number"]
+textarea
+    border 1px solid transparent
+    background #fff
+    box-shadow none
+    padding 10px 20px
+    font-size 15px
+    font-family font-body
+    font-weight 200
+    border-radius 3px
+    margin-top 0
+    margin-bottom 10px
+    color color-black
+    transition border-color .2s
+
+    &:focus
+        outline none
+        border-color color-primary
+
+    &.block
+        block-input()
+
+    &:last-child
+        margin-bottom 0
