@@ -1,0 +1,11 @@
+{
+    "rules": {
+        "notes": {
+            ".write": "auth != null",
+            "$user": {
+                ".read": "$user == auth.id",
+                ".write": "$user == auth.id"
+            }
+        }
+    }
+}

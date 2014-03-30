@@ -1,0 +1,20 @@
+#view.view-dashboard
+
+    input, textarea
+        text-align left
+
+    textarea
+        min-height 200px
+
+    .compose
+        @extend .box
+        clearfix()
+
+        button
+            margin-bottom 0
+
+    ul.notes
+        debullet()
+
+        li.note
+            @extend .box
