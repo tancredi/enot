@@ -5,6 +5,9 @@ app = require './app'
 # Routes
 require './routes'
 
+# Directives
+require './directive/auto-focus'
+
 # Components
 components = []
 

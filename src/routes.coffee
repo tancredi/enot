@@ -2,12 +2,26 @@ router = require './core/router'
 
 router
 
-.add '/dashboard',
-    templateName: 'dashboard'
-    controller: require './controller/dashboard'
-    title: 'Dashboard'
+.add '/notes',
+    templateName: 'notes'
+    controller: require './controller/notes'
+    title: 'Notes'
     loginRequired: true
-    slug: 'dashboard'
+    slug: 'notes'
+
+.add '/note/:id',
+    templateName: 'note'
+    controller: require './controller/note'
+    title: 'View note'
+    loginRequired: true
+    slug: 'note'
+
+.add '/edit/:id',
+    templateName: 'edit'
+    controller: require './controller/edit'
+    title: 'Edit note'
+    loginRequired: true
+    slug: 'edit'
 
 .add '/signin',
     templateName: 'signin'
@@ -27,4 +41,4 @@ router
     title: 'Sign-out'
     slug: 'signout'
 
-.otherwise '/dashboard'
+.otherwise '/notes'

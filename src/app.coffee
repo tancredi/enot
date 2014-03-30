@@ -1,4 +1,5 @@
 Vue = require 'vue'
+router = require './core/router'
 
 app = {}
 

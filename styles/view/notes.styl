@@ -1,0 +1,39 @@
+#view.view-notes
+
+    h2.center i
+        top 6px
+
+    input, textarea
+        text-align left
+
+    textarea
+        min-height 200px
+
+    .compose
+        @extend .box
+        clearfix()
+
+        button
+            margin-bottom 0
+
+    ul.notes
+        debullet()
+
+        li.note
+            @extend .box
+            padding 10px
+            margin-bottom 2px
+
+            a
+                color color-type-body
+
+            .title
+                ellipsis()
+                margin-top 10px
+
+            .actions
+                text-align right
+                padding-right 0
+
+                button
+                    margin-bottom 0

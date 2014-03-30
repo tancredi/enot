@@ -8,7 +8,14 @@ router = new Router()
 viewWrap = document.getElementById 'view'
 templatePath = '/view/'
 
+redirectBack = null
+
+router.onLogin = ->
+    @goTo redirectBack || @defaultPath
+
 beforeChange = (req) ->
+    if not redirectBack? then redirectBack = req.path
+
     if req.route.options.loginRequired and not session.user
         router.redirect = '/signin'
 
@@ -21,7 +28,6 @@ changeView = (req) ->
             changeView req
 
     app.context.viewOptions = req.route.options
-    app.context.segments = req.path.split('/').slice 1
 
     viewWrap.innerHTML = req.route.template or ''
 

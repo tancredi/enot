@@ -1,0 +1,9 @@
+h2.center {{ note.title }}
+
+p {{ note.text }}
+
+br
+
+.center: a.button(href='#/edit/{{ note.id }}')
+    i.icon-edit 
+    |  Edit

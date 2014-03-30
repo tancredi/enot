@@ -1,4 +1,4 @@
-auth = require '../service/auth'
+auth = require '../core/auth'
 router = require '../core/router'
 session = require '../core/session'
 app = require '../app'

@@ -1,0 +1,24 @@
+h2.center
+    i.icon-list
+    | Your notes
+
+button(v-on='click: writing = true', v-if='!writing')
+    i.icon-plus 
+    |  New note
+
+.compose(v-if='writing')
+    form(v-on='submit: save()')
+        input.block(type='text', v-model='note.title', placeholder='title')
+        textarea.block(v-model='note.text', placeholder='Text...')
+
+        .right
+            a.inverse(v-on='click: discard()') Discard
+            button(type='submit') Save
+
+ul.notes
+    li.row.note(v-repeat='notes')
+        .col-10.title: a(href='#') {{ title && text ? title + ' - ' + text : title || text }}
+        .col-2.actions
+            a.button.ico.subtle(href='#/note/{{ id }}'): i.icon-eye
+            a.button.ico.subtle(href='#/edit/{{ id }}'): i.icon-edit
+            a.button.ico.subtle(v-on='click: $parent.remove(this)'): i.icon-times

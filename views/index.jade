@@ -16,13 +16,14 @@ html(lang='en')
 
     body
         header: .page-width
-            a.logo(href='/') Enot
+            a.logo(href='#/') Enot
 
             nav: ul
                 li(v-if='user'): a(href='#/signout') Sign-out
                 li(v-if='!user'): a(href='#/signin') Sign-in
 
-        div.page-width: div#view
+        .page-width(v-class='hide: !authLoaded'): div#view
+        h5.center(v-if='!authLoaded') Loading&hellip;
 
         //- Vendor
         script(type='text/javascript', src='https://cdn.firebase.com/js/client/1.0.6/firebase.js')

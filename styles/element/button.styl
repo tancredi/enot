@@ -2,6 +2,9 @@ button-color(bg-color = color-primary, type-color = color-white)
     background bg-color
     color type-color
 
+    &:hover
+        background lighten(bg-color, 10%)
+
 button, a.button, input[type='submit'], input[type='reset']
     border-radius()
     font-family font-body
@@ -9,6 +12,8 @@ button, a.button, input[type='submit'], input[type='reset']
     padding 10px 20px
     font-size 15px
     font-weight normal
+    margin-right 5px
+    cursor pointer
 
     &, &.default
         button-color(color-primary)
@@ -30,3 +35,21 @@ button, a.button, input[type='submit'], input[type='reset']
 
     &.block
         block-input()
+
+    &:last-child
+        margin-bottom 0
+        margin-right 0
+
+    &.ico
+        font-size 20px
+        padding 0
+        width 40px
+        height 40px
+        line-height 45px
+        text-align center
+
+    &.chromeless
+        button-color(rgba(#fff, 0))
+
+    &.subtle
+        button-color(lighten(color-bg, 10%))

@@ -1,4 +1,4 @@
-auth = require '../service/auth'
+auth = require '../core/auth'
 
 module.exports = ->
 

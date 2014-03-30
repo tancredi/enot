@@ -1,6 +1,6 @@
 session = require '../core/session'
 router = require '../core/router'
-auth = require '../service/auth'
+auth = require '../core/auth'
 app = require '../app'
 
 module.exports = ->
