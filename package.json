@@ -2,8 +2,9 @@
   "name": "enot",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
+    "start": "node server/index.js",
     "watch": "gulp watch",
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
