@@ -1,6 +1,7 @@
 notes = require '../service/notes'
 session = require '../core/session'
 resource = require '../core/resource'
+router = require '../core/router'
 
 module.exports = (data, req) ->
     notesRef = resource "notes/#{session.user.id}"
@@ -14,6 +15,6 @@ module.exports = (data, req) ->
             ref = snapshot.ref()
             @note = note
 
-    @delete = =>
+    @remove = =>
         ref.remove()
         router.goTo router.defaultPath

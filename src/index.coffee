@@ -8,6 +8,9 @@ require './routes'
 # Directives
 require './directive/auto-focus'
 
+# Filters
+require './filter/markdown'
+
 # Components
 components = []
 

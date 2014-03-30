@@ -32,6 +32,7 @@
     "gulp-rename": "~1.2.x",
     "promise": "~4.0.x",
     "random-string": "~0.1.x",
-    "gulp-manifest": "0.0.x"
+    "gulp-manifest": "0.0.x",
+    "marked": "~0.3.x"
   }
 }

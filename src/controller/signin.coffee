@@ -4,6 +4,8 @@ session = require '../core/session'
 app = require '../app'
 
 module.exports = ->
+    if session.user
+        router.goTo router.defaultPath
 
     @signin = =>
         auth.login 'password',
