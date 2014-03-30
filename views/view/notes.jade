@@ -15,11 +15,11 @@ button(v-on='click: writing = true', v-if='!writing')
             a.inverse(v-on='click: discard()') Discard
             button(type='submit') Save
 
-.box.center(v-if='!notes || !notes.length')
+.box.center(v-class='hide: notes && notes.length')
     | You have no notes yet.  &nbsp;
     a(v-on='click: writing = true')  Create one &raquo;
 
-ul.notes(v-if='notes && notes.length')
+ul.notes(v-class='hide: !notes || !notes.length')
     li.row.note(v-repeat='notes')
         .col-10.title: a(href='#/note/{{ id }}') {{ title && text ? title + ' - ' + text : title || text }}
         .col-2.actions
