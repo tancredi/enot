@@ -13,3 +13,7 @@ module.exports = (data, req) ->
         if note.id is id
             ref = snapshot.ref()
             @note = note
+
+    @delete = =>
+        ref.remove()
+        router.goTo router.defaultPath

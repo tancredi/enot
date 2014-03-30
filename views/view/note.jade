@@ -1,9 +1,16 @@
 h2.center {{ note.title }}
 
-p {{ note.text }}
+hr
 
-br
+p.text {{ note.text }}
 
-.center: a.button(href='#/edit/{{ note.id }}')
-    i.icon-edit 
-    |  Edit
+hr
+
+.center
+    a.button(href='#/edit/{{ note.id }}')
+        i.icon-edit 
+        |  Edit
+
+    a.button.inverse(v-on='click: remove()')
+        i.icon-times 
+        |  Delete
