@@ -3,6 +3,7 @@ Vue = require 'vue'
 template = require './template'
 app = require '../app'
 session = require './session'
+_ = require 'lodash'
 
 router = new Router()
 viewWrap = document.getElementById 'view'
@@ -31,12 +32,22 @@ changeView = (req) ->
 
     viewWrap.innerHTML = req.route.template or ''
 
-    view = new Vue el: viewWrap, data: {}, methods: {}
+    controller = req.route.options.controller || {}
+
+    options =
+        inherit : true
+        twoWay  : true
+        el      : viewWrap
+        data    : _.extend {}, controller.data || {}, app.context
+        methods : {}
+
+    view = new Vue options
+    module.exports.view = view
 
     viewWrap.setAttribute 'class', "view-#{req.route.options.slug}"
 
-    if req.route.options.controller
-        req.route.options.controller.call view, view.$data, req
+    if controller.init
+        controller.init.call view, view.$data, req
 
 router.on 'beforeChange', beforeChange
 router.on 'change', changeView

@@ -3,7 +3,10 @@ session = require '../core/session'
 resource = require '../core/resource'
 router = require '../core/router'
 
-module.exports = (data, req) ->
+exports.data =
+    note : null
+
+exports.init = (data, req) ->
     notesRef = resource "notes/#{session.user.id}"
     id = req.namedParams.id
     ref = null
@@ -16,5 +19,7 @@ module.exports = (data, req) ->
             @note = note
 
     @remove = =>
+        return if not window.confirm 'Sure?'
+
         ref.remove()
         router.goTo router.defaultPath

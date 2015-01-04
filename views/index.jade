@@ -26,7 +26,7 @@ html(lang='en')
 
     body
         header: .page-width.center
-            a.logo(href='#/') Enot
+            a.logo(href='#/') Enot {{ authError }}
 
             nav: ul
                 li(v-if='user'): a(href='#/signout') Sign-out

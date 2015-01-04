@@ -5,7 +5,12 @@ notes = require '../service/notes'
 
 refs = []
 
-module.exports = ->
+exports.data =
+    notes   : null
+    note    : null
+    writing : false
+
+exports.init = ->
     @notes = notes.notes
     
     @reset = =>
@@ -26,6 +31,8 @@ module.exports = ->
         @reset()
 
     @remove = (note) =>
+        return if not window.confirm 'Sure?'
+
         notes.refs[note.id].remove (err) =>
             if err then throw err
 

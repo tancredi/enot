@@ -2,7 +2,7 @@ form(v-on='submit: save()')
     input.block(type='text', v-model='note.title', placeholder='Title')
     textarea.block(v-model='note.text', placeholder='Text...') {{ note.text }}
 
-    .right
+    .right(v-if='note')
         a.inverse.button(href='/#') Cancel
         a.inverse.button(v-on='click: delete') Delete
         button(type='submit') Save

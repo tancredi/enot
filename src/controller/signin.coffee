@@ -3,15 +3,14 @@ router = require '../core/router'
 session = require '../core/session'
 app = require '../app'
 
-module.exports = ->
+exports.data =
+    authError : null
+
+exports.init = ->
     if session.user
         router.goTo router.defaultPath
 
     @signin = =>
         auth.login 'password',
-            email: @email,
-            password: @password
-        , (err, user) ->
-            session.user = user
-            app.context.user = user
-            router.goTo router.defaultPath
+            email    : @email,
+            password : @password

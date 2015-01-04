@@ -5,11 +5,13 @@ app = {}
 
 app.init = ->
     view = new Vue
-        el: 'html'
-        data:
-            isAuthenticated: false
-            title: ''
-            segments: []
+        el   : 'html'
+        data :
+            user            : null
+            isAuthenticated : false
+            title           : ''
+            segments        : []
+            authLoaded      : false
 
     app.context = view.$data
 

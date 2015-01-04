@@ -5,7 +5,10 @@ app = require '../app'
 notes = require '../service/notes'
 
 module.exports = new FirebaseSimpleLogin firebase, (err, user) =>
-    if err then throw err
+    if err
+        console.log err
+        router.view.authError = err
+        return
 
     app.context.authLoaded = true
 

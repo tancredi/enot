@@ -7,10 +7,13 @@ p.text {{{ note.text | markdown }}}
 hr
 
 .center
-    a.button(href='#/edit/{{ note.id }}')
+    a.button(v-if='note', href='#/edit/{{ note.id }}')
         i.icon-edit 
         |  Edit
 
-    a.button.inverse(v-on='click: remove()')
+    a.button.inverse(v-if='note', v-on='click: remove()')
         i.icon-times 
         |  Delete
+
+    br
+    br

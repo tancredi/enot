@@ -3,7 +3,7 @@ session = require '../core/session'
 router = require '../core/router'
 app = require '../app'
 
-module.exports = ->
+exports.init = ->
 
     @signup = =>
         if @password is @passwordRep

@@ -12,7 +12,7 @@ button(v-on='click: writing = true', v-if='!writing')
         textarea.block(v-model='note.text', placeholder='Text...')
 
         .right
-            a.inverse(v-on='click: discard()') Discard
+            a(href='#').inverse(v-on='click: discard()') Discard &nbsp; 
             button(type='submit') Save
 
 .box.center(v-class='hide: notes && notes.length')
@@ -25,4 +25,4 @@ ul.notes(v-class='hide: !notes || !notes.length')
         .col-2.actions
             a.button.ico.subtle(href='#/note/{{ id }}'): i.icon-eye
             a.button.ico.subtle(href='#/edit/{{ id }}'): i.icon-edit
-            a.button.ico.subtle(v-on='click: $parent.remove(this)'): i.icon-times
+            a.button.ico.subtle(v-on='click: remove(this)'): i.icon-times
